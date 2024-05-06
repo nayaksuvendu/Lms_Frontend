@@ -5,6 +5,8 @@ import apj from '../assets/Images/apj.png'
 import einstein from '../assets/Images/einstein.png'
 import stevejobs from '../assets/Images/steveJobs.png'
 import nelsonMandela from '../assets/Images/nelsonMandela.png'
+import CraosualSlide from '../component/CraosualSlide'
+import { Celebreties } from '../constants/CelebretiData'
 
 
 export default function Aboutpage() {
@@ -28,73 +30,20 @@ export default function Aboutpage() {
                     <img className=' drop-shadow-2xl saturate-200 '
                     src={Aboutimage} alt="image" />
                 </div> 
-               </div> 
+
+             </div> 
             
 
 
-        <div className=" lg:relative carousel w-1/2 bottom-32 h-28 ">
+        <div className=" lg:relative carousel w-1/2 bottom-32 h-28 ">      
+            {Celebreties  && Celebreties.map((celebrity) =>(
+            <CraosualSlide {...celebrity} key={celebrity.slideNumber}
+           totalSlide={Celebreties.length}
+          />))}
+        </div> 
 
-       <div id="slide1" className="carousel-item relative w-full">
-          <div className="flex flex-cols items-center justify-center gap-4 px-[15%]">
-            <img src={nelsonMandela} className=" w-20 rounded-full border-2 border-gray-400" />
-            <p className="font-thin text-gray-200">
-            {'"Education is the most powerful tool you can use to change the world."'}
-            </p>
-           <h3 className=" text-nowrap font-semibold">Nelson Mandela</h3>
-           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-           <a href="#slide4" className="btn btn-circle">❮</a> 
-           <a href="#slide2" className="btn btn-circle">❯</a>
-           </div>
-         </div> 
-        </div>
-
-  <div id="slide2" className="carousel-item relative w-full">
-    <div className="flex flex-cols items-center justify-center gap-4 px-[15%]">
-      <img src={apj} className="w-20 rounded-full border-2 border-gray-400" />
-        <p className=" font-thin text-gray-200">
-        {' "Education is the most powerful tool you can use to change the world." '}
-        </p>
-        <h3 className=" text-nowrap font-semibold"> A.P.J Abdual kalam</h3>
-     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide1" className="btn btn-circle">❮</a> 
-      <a href="#slide3" className="btn btn-circle">❯</a>
-     </div>
+    </div>
     </div> 
-   </div>
-  
-   <div id="slide3" className="carousel-item relative w-full ">
-    <div className="flex flex-cols items-center justify-center gap-4 px-[15%]">
-      <img src={einstein} className="w-20 rounded-full border-2 border-gray-400" />
-        <p className=" text-thin text-gray-200">
-        {'"Education is the most powerful tool you can use to change the world."'}
-        </p>
-        <h3 className="text-nowrap font-semibold">Albert Einstein</h3>
-     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide2" className="btn btn-circle">❮</a> 
-      <a href="#slide4" className="btn btn-circle">❯</a>
-     </div>
-    </div> 
-    </div>
-
-    <div id="slide4" className="carousel-item relative w-full">
-     <div className="flex flex-cols items-center justify-center gap-4 px-[15%]">
-      <img src={stevejobs} className="w-20 rounded-full border-2 border-gray-400" />
-        <p className="text-thin text-gray-200">
-        {'"Education is the most powerful tool you can use to change the world."'}
-        </p>
-        <h3 className="text-nowrap font-semibold">Steve Jobs</h3>
-     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide3" className="btn btn-circle">❮</a> 
-      <a href="#slide1" className="btn btn-circle">❯</a>
-     </div>
-     </div> 
-    </div>
-
-    </div>
-    </div>
-
-    </div>
-    
    
     </HomeLayout>
   )

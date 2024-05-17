@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // metion the backendUrl
-const Base_url='http://localhost:5014/api/v1'
+const Base_url='http://localhost:4040/api/v1'
 
 //create insatnce of axios
 const axiosinstance=axios.create()

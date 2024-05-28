@@ -13,6 +13,15 @@ import Coursedetails from './pages/course/Coursedetails.jsx'
 import RequireAuth from './component/auth/RequireAuth.jsx'
 import CreateCourse from './pages/course/CreateCourse.jsx'
 import DeniedPage from './pages/DeniedPage.jsx'
+import Profile from './pages/profile/Profile.jsx'
+import EditProfile from './pages/profile/EditProfile.jsx'
+import Checkout from './pages/payment/CheckoutPage.jsx'
+import PaymentFail from './pages/payment/FailPayment.jsx'
+import PaymentSuccess from './pages/payment/SuccessPayment.jsx'
+import Displaylectures from './pages/dashboard/Displaylectures.jsx'
+import AddLectures from './pages/dashboard/AddLectures.jsx'
+import AdminDashboard from './pages/dashboard/AdminDashboard.jsx'
+
 function App() {  
   return (
  <>
@@ -23,7 +32,18 @@ function App() {
   <Route path='/Login' element={<Login/>}></Route> 
 
   <Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
-  <Route path='/course/create' element={<CreateCourse/>}></Route>
+  <Route path = '/course/create' element={<CreateCourse/>}></Route>
+  <Route path = '/course/addLectures' element={<AddLectures/>}></Route>
+  <Route path = '/admin/dashboard' element={<AdminDashboard/>}></Route>
+  </Route>
+
+  <Route element={<RequireAuth allowedRoles={["ADMIN","USER"]}/>}>
+  <Route path='/user/profile' element={<Profile/>}></Route>
+  <Route path='/user/editprofile' element={<EditProfile/>}></Route>
+  <Route path='/payment/checkout' element={<Checkout/>}></Route>
+  <Route path='/payment/fail' element={<PaymentFail/>}></Route>
+  <Route path='/payment/success' element={<PaymentSuccess/>}></Route>
+  <Route path='/course/displaylectures' element={<Displaylectures/>}></Route>
   </Route>
   
   <Route path='/courses' element={<Courselist/>}></Route>

@@ -14,10 +14,10 @@ export default function Aboutpage() {
   return (
 
     <HomeLayout >
-     <div>
-        <div className=' pl-20 pt-10 flex flex-col text-white space-y-3 '>
+ 
+        <div className=' pl-20 pt-10 flex flex-col text-white min-h-[90vh]  '>
             <div className='flex items-center gap-5 mx-10 '>
-                <section className=' w-1/2 space-y-5'>
+                <section className=' w-1/2 space-y-10'>
                     <h1 className=' text-5xl text-yellow-500 font-semibold'>
                      Affordable and quality education
                     </h1>
@@ -26,8 +26,11 @@ export default function Aboutpage() {
                     </p>
                 </section>
 
-                <div>
-                    <img className=' drop-shadow-2xl saturate-200 '
+                <div className=' w-1/2 ml-3 '>
+                    <img className='drop-shadow-2xl saturate-200 '
+                    style={{
+                      filter: "drop-shadow(0px 10px 10px rgb(0,0,0));"
+                  }}
                     src={Aboutimage} alt="image" />
                 </div> 
 
@@ -35,7 +38,7 @@ export default function Aboutpage() {
             
 
 
-        <div className=" lg:relative carousel w-1/2 bottom-32 h-28 ">      
+        <div className=" lg:relative carousel w-1/2 bottom-32 h-28  my-auto  ">      
             {Celebreties  && Celebreties.map((celebrity) =>(
             <CraosualSlide {...celebrity} key={celebrity.slideNumber}
            totalSlide={Celebreties.length}
@@ -43,7 +46,7 @@ export default function Aboutpage() {
         </div> 
 
     </div>
-    </div> 
+
    
     </HomeLayout>
   )

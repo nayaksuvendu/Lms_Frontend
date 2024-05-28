@@ -1,7 +1,7 @@
 import {useDispatch,useSelector} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { Footer } from '../component/Footer'
-import { logout } from '../Redux/Slices/AuthSlice';
+import { logout } from '../Redux/Slices/AuthSlice.js';
 import{FiMenu} from 'react-icons/fi'
 
 export default function HomeLayout({children}){
@@ -23,11 +23,12 @@ export default function HomeLayout({children}){
   }
   
   return (
-    <div className=' min-h-[90vh] overflow-hidden overscroll-none '>
+    
 
 <div className="min-h-[90vh]">
 
-<div className="drawer absolute left-0 z-50 w-full">
+
+ <div className="drawer absolute left-0 z-50 w-full">
   <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
   <div className="drawer-content flex flex-col">
 
@@ -83,7 +84,7 @@ export default function HomeLayout({children}){
       </div>
     </div>
     {/* <!-- Page content here --> */}
-    {children}
+    {/* {children} */}
   </div>
    
   <div className="drawer-side">
@@ -118,7 +119,7 @@ export default function HomeLayout({children}){
                         </li>)
                         }
                         
-      <div className=" lg:hidden">
+      <div className="lg:hidden">
       {!isLoggedIn && (
         <li className='absolute bottom-9 w-[80%] '>
           <div className=' w-full flex items-center justify-center  gap-4'>
@@ -149,9 +150,13 @@ export default function HomeLayout({children}){
     </ul>
   </div>
   
+ </div>
+ 
+
+ {children}
+ <Footer/>
 </div>
-</div>
-<Footer/>
-</div>
+
+
   )
 }

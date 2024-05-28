@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import HomeLayout from '../../layout/HomeLayout'
 import { useDispatch, useSelector } from 'react-redux'
-import { getallCourses } from '../../Redux/Slices/CourseSlice';
+import { getallCourses } from '../../Redux/Slices/CourseSlice.js';
 import Coursecard from '../../component/courseCard/Coursecard.jsx';
 
 export default function Courselist() {

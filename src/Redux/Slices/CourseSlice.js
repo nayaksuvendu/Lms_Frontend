@@ -18,7 +18,7 @@ export const getallCourses = createAsyncThunk('/course/get',async()=>{
  } catch (error) {
     toast.error(error?.res?.data?.message)
  }
-})
+});
 
 export const createNewCourse = createAsyncThunk('/course/create',async(data)=>{
  try{
@@ -34,15 +34,31 @@ export const createNewCourse = createAsyncThunk('/course/create',async(data)=>{
    toast.promise(response,{
     loading: "Creating new course",
     success: "Course created successfully",
-    error: "Failed to create course"
+    error: (data)=>{ return data?.data.message},
    })
    return (await response).data
 }
 catch(error){
-toast.error(error?.response?.data?.message)
+// toast.error(error?.response?.data?.message)
+console.log(error)
 }  
+});
 
-})
+export const deleteCourses = createAsyncThunk('/course/delete',async(id)=>{
+    try {
+       const res = axiosinstance.delete('/courses/${id}')
+       toast.promise(res,{
+           loading:'deleting course data...',
+           success:'Courses deleted successfully',
+           error:'Failed to delete the courses'
+       })
+       return (await res).data.course
+    } catch (error) {
+       toast.error(error?.res?.data?.message)
+    }
+   });
+
+
 
 const courseSlice = createSlice({
     name:'courses',

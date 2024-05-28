@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function DeniedPage() {
-    const navigate = useNavigate()
+ const navigate = useNavigate()
   return (
  <div className='h-screen w-full flex flex-col justify-center items-center'>
 
@@ -14,7 +14,7 @@ export default function DeniedPage() {
     </div>
     <button className='mt-5'>
         <a className=' inline-block text-sm font-medium text-[#aa22d3] active:text-yellow-500 focus:outline-non focus:ring '>
-            <span onClick={() => navigate(-1)} className=' block px-8 py-3 bg-[#1A2238] border border-current rounded-md'>
+            <span onClick={() => navigate('/')} className=' block px-8 py-3 bg-[#1A2238] border border-current rounded-md'>
                 Go Back               
             </span>
         </a>

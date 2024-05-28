@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {toast} from 'react-hot-toast';
-import { createAccount } from '../Redux/Slices/AuthSlice';
+import { createAccount } from '../Redux/Slices/AuthSlice.js';
 
 export default function Login() {
     const navigate=useNavigate(); // for jump to specified page

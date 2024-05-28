@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {toast} from 'react-hot-toast';
-import {  login } from '../Redux/Slices/AuthSlice';
+import {  login } from '../Redux/Slices/AuthSlice.js';
 
 export default function Signup() {
-    const navigate=useNavigate(); // for jump to specified page
-    const dispatch=useDispatch();
+    const navigate = useNavigate(); // for jump to specified page
+    const dispatch = useDispatch();
 
     const[loginData,setloginData]=useState({
         email:"",

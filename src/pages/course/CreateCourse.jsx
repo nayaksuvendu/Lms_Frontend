@@ -1,7 +1,7 @@
 import  { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
-import { createNewCourse } from '../../Redux/Slices/CourseSlice';
+import { createNewCourse } from '../../Redux/Slices/CourseSlice.js';
 import HomeLayout from '../../layout/HomeLayout';
 import {AiOutlineArrowLeft} from 'react-icons/ai'
 import toast from 'react-hot-toast';
@@ -158,7 +158,7 @@ export default function CreateCourse() {
                 <label htmlFor="description" className=' text-lg font-semibold'>
                 Course Description
                 </label>
-                <textarea type="text" 
+                <textarea 
                  required
                  className='bg-transparent px-2 py-1 border h-24 overflow-y-scroll resize-none '
                  id='description'

@@ -30,7 +30,7 @@ export default function ContactusPage() {
     }   
     try{
         
-        const res = await axiosinstance.post('/contact',userInput)
+        const res =  axiosinstance.post('/contact',userInput)
               toast.promise(res,{
               loading: "Submitting your message...",
               success: "Form submitted successfully",

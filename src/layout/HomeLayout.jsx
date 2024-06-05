@@ -42,7 +42,7 @@ export default function HomeLayout({children}){
                         /></svg>
         </label>
       </div> 
-      <div className="flex-1 px-2 mx-2">Navbar Title</div>
+      <div className="flex-1 px-2 mx-2 font-serif font-bold text-xl"><span className='bg-gradient-to-r from-indigo-500 via-purple-500 to-transparent text-white'>Nayak Tutorials</span></div>
       <div className="flex-none hidden lg:block">
         <ul className=" menu menu-horizontal">
 
@@ -50,10 +50,10 @@ export default function HomeLayout({children}){
           {!isLoggedIn && (
         <li className=' relative hover:bg-transparent'>
           <div className=' w-full flex items-center justify-center gap-4 shadow-none'>
-            <button className=' btn-active bg-lime-600 px-4 py-1 font-semibold rounded-md w-full'>
+            <button className=' btn-active bg-lime-400 px-4 py-1 font-semibold rounded-md w-full text-white'>
               <Link to='/login'>Login</Link>
             </button>
-            <button className='btn-active bg-cyan-600 px-4 py-1 font-semibold rounded-md w-full '>
+            <button className='btn-active bg-cyan-400 px-4 py-1 font-semibold rounded-md w-full text-white '>
               <Link to='/signup'> Signup</Link>
             </button>
           </div>
@@ -63,16 +63,16 @@ export default function HomeLayout({children}){
       {isLoggedIn && (
         <li className='relative hover:shadow-none '>
           <div className='w-full flex items-center justify-center '>
-            <button className=' btn-active bg-lime-600 px-4 py-1 font-semibold rounded-md w-full'>
+            <button className=' btn-active bg-lime-400 px-4 py-1 font-semibold rounded-md w-full text-white'>
               <Link to='/user/profile'>Profile</Link>
             </button>
-            <button className='btn-active bg-red-700  px-4 py-1 font-semibold rounded-md w-full '>
+            <button className='btn-active bg-red-500  px-4 py-1 font-semibold rounded-md w-full text-white '>
               <Link  onClick={handleLogout}>Logout</Link>
             </button>
           </div>
         </li>
       )}                  
-        <li className='flex'><a>Navbar Item 1</a></li>  
+        {/* <li className='flex'><a>Navbar Item 1</a></li>   */}
           
           { isLoggedIn && role=='ADMIN' && 
             (<li>
@@ -84,7 +84,6 @@ export default function HomeLayout({children}){
       </div>
     </div>
     {/* <!-- Page content here --> */}
-    {/* {children} */}
   </div>
    
   <div className="drawer-side">
@@ -123,10 +122,10 @@ export default function HomeLayout({children}){
       {!isLoggedIn && (
         <li className='absolute bottom-9 w-[80%] '>
           <div className=' w-full flex items-center justify-center  gap-4'>
-            <button className=' btn-active bg-lime-600 px-4 py-1 font-semibold rounded-md w-full'>
+            <button className=' btn-active bg-lime-400 px-4 py-1 font-semibold rounded-md w-full text-white'>
               <Link to='/Login'>Login</Link>
             </button>
-            <button className='btn-active bg-cyan-600 px-4 py-1 font-semibold rounded-md w-full '>
+            <button className='btn-active bg-cyan-400 px-4 py-1 font-semibold rounded-md w-full text-white'>
               <Link to='/Signup'> Signup</Link>
             </button>
           </div>

@@ -23,7 +23,7 @@ export default function AdminDashboard() {
 
     const {totalUser,totalSubscriber} = useSelector((state)=>state.admin);
     const {allPayments,monthlySalesRecord} = useSelector((state)=>state.razorpay);
-    
+    console.log(totalSubscriber);
     const userData = {
         labels:['Registered User','Enrolled User'],
         fontColor:'white',
@@ -50,6 +50,7 @@ export default function AdminDashboard() {
 
         }]
     };
+
 
     const myCourses = useSelector((state) => state?.course?.courseData);
 
@@ -104,7 +105,7 @@ export default function AdminDashboard() {
             
             <div className='flex flex-col gap-5 p-5 shadow-lg rounded-md'>
                 <div className='w-full h-80 relative'>
-                    <Bar className='absolute bottom-0 h-80 w-full' data={salesData}/>
+                    <Bar className='absolute bottom-0 h-80 w-full' data={salesData} />
                 </div>
                 <div className=' grid grid-cols-2 gap-5'>
                     <div className='flex items-center justify-between p-5 gap-5 rounded-md shadow-md'>
@@ -149,7 +150,7 @@ export default function AdminDashboard() {
                             <th>Instructor</th>
                             <th>Total Lectures</th>
                             <th>Description</th>
-                            <th>Actions</th>
+                            <th >Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -163,9 +164,9 @@ export default function AdminDashboard() {
                                     <td>{course?.createdBy}</td>
                                     <td>{course?.numberOfLectures}</td>
                                     <td className='max-w-28 overflow-hidden text-ellipsis whitespace-nowrap'>
-                                        <textarea readOnly value={course?.description} className='w-40 h-auto bg-transparent resize-none'>
+                                        <textarea readOnly value={course?.description} className=' w-52 h-auto bg-transparent resize-none'>
                                         </textarea></td>
-                                    <td>
+                                    <td className='lg:space-x-2'>
                                         <button className="bg-green-500 hover:bg-green-600 transition-all ease-in-out duration-300 text-xl py-2 px-4 rounded-md font-bold"
                                         onClick={()=>navigate('/course/displaylectures',{state:{...course}})}
                                         >

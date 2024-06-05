@@ -15,7 +15,7 @@ export default function AddLectures() {
     id : state?._id,
     lecture: undefined,
     title: "",
-    desrciption: "",
+    description: "",
     videoSrc: ""
   })
 
@@ -44,7 +44,7 @@ export default function AddLectures() {
   async function onFormSubmit(e){
     e.preventDefault();
 
-    if(!userInput.lecture || !userInput.title || !userInput.desrciption) {
+    if(!userInput.lecture || !userInput.title || !userInput.description) {
         toast.error("All fields are mandatory!")
         return;
     }
@@ -63,6 +63,7 @@ export default function AddLectures() {
     }
   }
 
+  
   useEffect(()=>{
     if(!state)navigate('/courses')
   },[])
@@ -94,9 +95,9 @@ export default function AddLectures() {
                        className='bg-transparent px-3 py-1 border'               
                 />
                 <textarea 
-                       name = 'desrciption'
+                       name = 'description'
                        onChange = {handleInputChange}
-                       value = {userInput.desrciption}
+                       value = {userInput.description}
                        placeholder = 'enter the description of the lecture'
                        className ='bg-transparent border resize-none px-3 py-1 overflow-y-scroll h-36 '                
                 />
@@ -125,8 +126,8 @@ export default function AddLectures() {
                 )
             }
                 <button type='submit' className=' btn bg-orange-700 py-1 font-semibold text-lg'>
-                        Add new Lecture
-                    </button>
+                Add new Lecture
+                </button>
 
               </form>
 

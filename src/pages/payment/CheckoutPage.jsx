@@ -55,12 +55,12 @@ async function handleSubscription(e){
 
   }
   const paymentObject = new window.Razorpay(options) ;
-  paymentObject.open(); // open payment window
+  await paymentObject.open(); // open payment window
 }
 
 async function load(){
-  await dispatch(getRazorPayId());
-  await dispatch(purchesCourseBundle())
+   dispatch(getRazorPayId());
+   dispatch(purchesCourseBundle())
 }
 
 useEffect(()=>{load()},[])

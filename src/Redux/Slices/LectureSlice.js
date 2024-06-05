@@ -40,6 +40,7 @@ export const getCourseLecture = createAsyncThunk(('/course/displaylectures'),asy
                 success: "Lectures loaded successfully",
                 error: "Failed to load the lectures"   
             })
+            console.log((await response).data)
             return (await response).data
             
         } catch (error) {

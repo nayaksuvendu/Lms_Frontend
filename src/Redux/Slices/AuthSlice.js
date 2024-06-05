@@ -6,8 +6,9 @@ const initialState={
     // getting all items from localStorage//DB
     isLoggedIn: localStorage.getItem('isLoggedIn') || false,
     role: localStorage.getItem('role') || false,
-    data: JSON.parse(localStorage.getItem('data')) || {} //.parse -> convert object to json
+    data: (localStorage.getItem('data') === 'undefined') ? {} : JSON.parse(localStorage.getItem('data'))  //.parse -> convert object to json
 };
+
 //sending dispatched value to server
 export const createAccount = createAsyncThunk('/auth/signup',async(data)=>{
 try{
@@ -15,13 +16,13 @@ try{
  toast.promise(res,{
     loading:"wait! creating your account",
     success:(data)=>{ return data?.data?.message},
-    error:(data)=>{ return data?.data?.message}, 
+    error:(data)=>{ return data?.data?.message} , 
  })
  return (await res).data;
 
 }
 catch(error){
-toast.error(error?.response?.data?.message)
+toast.error('Somthing went wrong!')
 }
 })
 
@@ -37,7 +38,7 @@ export const login = createAsyncThunk('/auth/login',async(data)=>{
     
     }
     catch(error){
-    console.log(error)
+    toast.error(error)
     }
     })
 
@@ -54,8 +55,8 @@ export const login = createAsyncThunk('/auth/login',async(data)=>{
          return (await res).data;
         }
         catch(e){           
-      //   toast.error(e?.response?.data?.message)
-      console.log(e)
+        toast.error(e?.response?.data?.message)
+       
         }
         })
 
@@ -90,7 +91,56 @@ export const login = createAsyncThunk('/auth/login',async(data)=>{
                //  toast.error(e?.response?.data?.message)
                console.log(e)
                 }
-                })           
+                }) ;
+                
+  export const changePassword = createAsyncThunk('/user/changepassword',async(userPassword)=>{
+   try {
+     const res = axiosinstance.post('/user/change-password',userPassword);
+     toast.promise(res,{
+      loading:"wait!  loading...",
+      success:(data)=>{ return data?.data?.message},
+      error: 'Failed to change password'
+   })
+   return (await res).data
+      
+   } catch (error) {
+      toast.error(error?.response?.data?.message);
+   }
+  });
+
+  export const forgetPassword = createAsyncThunk('/auth/forgetPassword',async(email)=>{
+   try {
+     const res =  axiosinstance.post('/user/forget',email);
+
+     toast.promise(res,{
+      loading:"wait! loading...",
+      success:(data)=>{ return data?.data?.message},
+      error: 'Failed to send verification link'
+   })
+   return (await res).data
+      
+   } catch (error) {
+      toast.error(error?.response?.data?.message);
+   }
+  });
+
+  export const resetPassword = createAsyncThunk('/user/reset',async(data)=>{
+   try {
+     const res = axiosinstance.post(`/user/reset/${data.resetToken}`,{password: data.password});
+     toast.promise(res,{
+      loading: "wait! Resetting...",
+      success:(data)=>{ return data?.data?.message},
+      error: 'Failed to reset password'
+   })
+   return (await res).data
+      
+   } catch (error) {
+      toast.error(error?.response?.data?.message);
+   }
+  });
+
+  
+  
     
 
 //create slice

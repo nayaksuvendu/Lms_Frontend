@@ -15,7 +15,7 @@ export default function DeniedPage() {
     <button className='mt-5'>
         <a className=' inline-block text-sm font-medium text-[#aa22d3] active:text-yellow-500 focus:outline-non focus:ring '>
             <span onClick={() => navigate('/')} className=' block px-8 py-3 bg-[#1A2238] border border-current rounded-md'>
-                Go Back               
+                Go Home              
             </span>
         </a>
     </button>

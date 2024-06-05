@@ -21,6 +21,9 @@ import PaymentSuccess from './pages/payment/SuccessPayment.jsx'
 import Displaylectures from './pages/dashboard/Displaylectures.jsx'
 import AddLectures from './pages/dashboard/AddLectures.jsx'
 import AdminDashboard from './pages/dashboard/AdminDashboard.jsx'
+import ChangePassword from './pages/password/ChangePassword.jsx'
+import ForgetPassword from './pages/password/ForgetPassword.jsx'
+import ResetPassword from './pages/password/ResetPassword.jsx'
 
 function App() {  
   return (
@@ -30,6 +33,9 @@ function App() {
   <Route path='/Aboutus' element={<Aboutpage/>}></Route>
   <Route path='/Signup' element={<Signup/>}></Route>
   <Route path='/Login' element={<Login/>}></Route> 
+  <Route path='/forgetpassword' element={<ForgetPassword/>}></Route> 
+  <Route path='/reset-password/:resetToken' element={<ResetPassword/>}></Route> 
+
 
   <Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
   <Route path = '/course/create' element={<CreateCourse/>}></Route>
@@ -44,6 +50,7 @@ function App() {
   <Route path='/payment/fail' element={<PaymentFail/>}></Route>
   <Route path='/payment/success' element={<PaymentSuccess/>}></Route>
   <Route path='/course/displaylectures' element={<Displaylectures/>}></Route>
+  <Route path='/user/changepassword' element={<ChangePassword/>}></Route>
   </Route>
   
   <Route path='/courses' element={<Courselist/>}></Route>

@@ -25,7 +25,6 @@ export const getRazorPayId = createAsyncThunk('/razorpay/getId',async ()=>{
 export const purchesCourseBundle = createAsyncThunk('/purchasecourse',async()=>{
     try {
         const response = await axiosinstance.post('/payment/subscribe');
-        console.log(response.data)
         return response.data;
         
     } catch (error) {
@@ -40,7 +39,6 @@ export const verifyUserPayment = createAsyncThunk('/payments/verify',async (data
             RzpSubscription_id : data.razorpay_subscription_id,
             RozerPay_signature : data.razorpay_signature
         })
-        console.log(response.data)
         return response.data
         
     } catch (error) {
@@ -51,7 +49,7 @@ export const verifyUserPayment = createAsyncThunk('/payments/verify',async (data
 
 export const getPaymentRecord = createAsyncThunk("/payments/record", async () => {
     try {
-        const response = await axiosinstance.get("/payment?count=100"); // getting latest 100 payment
+        const response =  axiosinstance.get("/payment?count=100"); // getting latest 100 payment
         toast.promise(response, {
             loading: "Getting the payment record",
             success: (data) => {
@@ -61,10 +59,10 @@ export const getPaymentRecord = createAsyncThunk("/payments/record", async () =>
                 return data?.data?.message
             }
         })
-        return await response.data
+        return  (await response).data
 
     } catch(error) {
-        console.log(error)
+
         toast.error("Operation failed");
     }
 });

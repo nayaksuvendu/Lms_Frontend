@@ -24,6 +24,7 @@ async function handleCancelletion(){
   useEffect(()=>{},[userDetails]);
 
   return (
+
    <HomeLayout>
 
     <div className=' min-h-[90vh] flex justify-center items-center'>
@@ -43,7 +44,7 @@ async function handleCancelletion(){
             </div>
             <div className='flex items-center justify-between gap-2'>
                 <Link
-                to="/changePassword"
+                to="/user/changepassword"
                 className=" w-1/2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer text-center "
                 >
                 <button>Change password</button>

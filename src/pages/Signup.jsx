@@ -95,8 +95,8 @@ export default function Login() {
 
   return (
     <HomeLayout>
-    <div className='flex overflow-y-auto items-center justify-center h-[80vh]'>
-        <form noValidate autoFocus onSubmit={createNewAccount}  className='flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-96 shadow-[0_0_10px_black]'>
+    <div className='flex overflow-y-auto items-center justify-center min-h-[90vh] '>
+        <form noValidate autoFocus onSubmit={createNewAccount}  className='flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-96 shadow-[0_0_10px_black] mt-10'>
             <h1 className=' text-center text-2xl font-bold ' >Registration Page</h1>
             <label htmlFor="avatar">
 

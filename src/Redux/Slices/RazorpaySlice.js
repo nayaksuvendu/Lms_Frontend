@@ -14,7 +14,7 @@ const initialState={
 
 export const getRazorPayId = createAsyncThunk('/razorpay/getId',async ()=>{
     try{
-        const response = await axiosinstance.get('/payment/razorpay-key');
+        const response =  axiosinstance.get('/payment/razorpay-key');
         return response.data 
     }
     catch(error){
@@ -24,7 +24,7 @@ export const getRazorPayId = createAsyncThunk('/razorpay/getId',async ()=>{
 
 export const purchesCourseBundle = createAsyncThunk('/purchasecourse',async()=>{
     try {
-        const response = await axiosinstance.post('/payment/subscribe');
+        const response =  axiosinstance.post('/payment/subscribe');
         return response.data;
         
     } catch (error) {

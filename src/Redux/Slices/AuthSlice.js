@@ -28,7 +28,7 @@ toast.error('Somthing went wrong!')
 
 export const login = createAsyncThunk('/auth/login',async(data)=>{
     try{
-     const res= axiosinstance.post('user/login',data); // sending data to specified server url
+     const res = axiosinstance.post('user/login',data); // sending data to specified server url
      toast.promise(res,{
         loading:"wait! authentication on progress...",
         success:(data)=>{ return data?.data?.message},

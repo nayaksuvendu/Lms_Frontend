@@ -74,11 +74,11 @@ export default function HomeLayout({children}){
       )}                  
         {/* <li className='flex'><a>Navbar Item 1</a></li>   */}
           
-          { isLoggedIn && role=='ADMIN' && 
+{/*           { isLoggedIn && role=='ADMIN' && 
             (<li>
               <Link to="/admin/dashboard">Admin DashBoard</Link>
               </li>)
-          }
+          } */}
 
         </ul>
       </div>
